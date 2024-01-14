@@ -30,4 +30,36 @@ public class 동작파라미터화 {
     ApplePrinter.prettyPrintApple(apples, formatter);
   }
 
+  @Test
+  @DisplayName("복잡한과정간소화-익명 클래스")
+  void 복잡한과정간소화() {
+    //Arrange
+    List<Apple> apples = new ArrayList<>();
+    apples.add(new Apple(15));
+    apples.add(new Apple(6));
+    //Act
+    ApplePrinter.prettyPrintApple(apples, new AppleFormatter() {
+      @Override
+      public String accept(Apple apple) {
+        if (apple.getWeight() > 10)
+          return "Heavy";
+        return "Not Heavy";
+      }
+    });
+  }
+
+  @Test
+  @DisplayName("복잡한과정간소화-람다")
+  void 람다() {
+    //Arrange
+    List<Apple> apples = new ArrayList<>();
+    apples.add(new Apple(15));
+    apples.add(new Apple(6));
+    //Act
+    ApplePrinter.prettyPrintApple(apples, apple -> {
+      if (apple.getWeight() > 10)
+        return "Heavy";
+      return "Not Heavy";
+    });
+  }
 }
