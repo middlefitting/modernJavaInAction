@@ -1,6 +1,7 @@
 package com.example.mordenjava.section2.동작파라미터화;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -61,5 +62,16 @@ public class 동작파라미터화 {
         return "Heavy";
       return "Not Heavy";
     });
+  }
+
+  @Test
+  @DisplayName("comparator로 정렬하기")
+  void comparator() {
+    List<Apple> apples = new ArrayList<>();
+    apples.add(new Apple(15));
+    apples.add(new Apple(6));
+    apples.add(new Apple(6));
+    apples.sort(Apple::compareTo);
+
   }
 }

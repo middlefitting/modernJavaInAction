@@ -17,7 +17,11 @@ import lombok.Getter;
  */
 @Data
 @AllArgsConstructor
-public class Apple {
+public class Apple implements Comparable<Apple>{
   private int weight;
 
+  @Override
+  public int compareTo(Apple o) {
+    return Integer.compare(this.weight, o.weight);
+  }
 }
