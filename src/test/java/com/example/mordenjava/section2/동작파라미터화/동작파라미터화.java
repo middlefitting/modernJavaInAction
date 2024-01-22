@@ -72,6 +72,9 @@ public class 동작파라미터화 {
     apples.add(new Apple(6));
     apples.add(new Apple(6));
     apples.sort(Apple::compareTo);
-
+    apples.sort(Comparator.comparing(Apple::getWeight));
+    System.out.println(apples);
   }
+
+
 }
