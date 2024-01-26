@@ -125,4 +125,5 @@ public class 실전연습 {
 			.mapToInt(Integer::intValue)
 			.min();
 	}
+
 }
